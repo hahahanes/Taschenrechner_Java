@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Hannes Goldfuß
+ * @author Hannes Goldfuß, Julia Schöpp
  */
 
 

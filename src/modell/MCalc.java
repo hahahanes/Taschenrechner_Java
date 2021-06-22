@@ -1,11 +1,17 @@
 package modell;
 
+
+/**
+*
+* @author Hannes Goldfuß, Julia Schöpp
+*/
+
 public class MCalc {
 	
-	private static double x = 0;
-	private static double y = 0;
-	private static char currentMethod = '0';
-	private static int kommaCounter = 0;
+	private static double x = 0; //linke Zahl
+	private static double y = 0; //rechte Zahl
+	private static char currentMethod = '0'; // aktuelle Rechenart
+	private static int kommaCounter = 0;	// Anzahl Nachkommastellen
 	
 	public static String eingabe(char funktion) {
 		
@@ -26,9 +32,12 @@ public class MCalc {
 		case '8':
 		case '9':
 		case '0':
+			//Zahl hinzufügen ohne Komma
 			if(kommaCounter ==0) {
 				y = y*10 + Character.getNumericValue(funktion);
 			}
+			
+			//Zahl hinzufügen falls Komma vorhanden
 			else {
 				y = y + Character.getNumericValue(funktion)*Math.pow(10,-kommaCounter);
 				kommaCounter++;
@@ -38,7 +47,7 @@ public class MCalc {
 		case '*':
 		case '+':
 		case '-':
-			if ( x == 0) xBerechnen();
+			xBerechnen();
 			
 			currentMethod=funktion;
 			kommaCounter = 0;
@@ -52,9 +61,11 @@ public class MCalc {
 			return ""+roundNumber(x);
 			
 		case ',':
-			kommaCounter++;
-			return buildString() + ",";
-			
+			if ( kommaCounter == 0 && y != 0) {
+			  kommaCounter++;
+			  return buildString() + ",";
+			}
+			return buildString();
 			
 		
 			

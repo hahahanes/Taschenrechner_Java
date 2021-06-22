@@ -6,6 +6,11 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import modell.MCalc;
 
+/**
+*
+* @author Hannes Goldfuß, Julia Schöpp
+*/
+
 public class ButtonController implements EventHandler<ActionEvent>{
 
 	private Label screen;
